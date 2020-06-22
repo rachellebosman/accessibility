@@ -8,14 +8,17 @@ const qrResult = document.getElementById("qr-result");
 const outputData = document.getElementById("outputData");
 const btnScanQR = document.getElementById("btn-scan-qr");
 
+const outputUrl = document.getElementById("outputUrl");
+
 let scanning = false;
 
 qrcode.callback = (res) => {
   if (res) {
-    //outputData.innerText = res;
-    // res in link zetten
+    //outputData2.innerText = res;
 
-    outputData.innerHTML = "<a href='" + res + "'> OPEN HET MENU </a>";
+    // res in link zetten
+    outputUrl.innerHTML = "<h2>" + res + "<h2";
+    outputData.innerHTML = "<a href='" + res + "'><h1> OPEN MENU </h1></a>";
 
     scanning = false;
 
@@ -25,7 +28,7 @@ qrcode.callback = (res) => {
 
     qrResult.hidden = false;
     canvasElement.hidden = true;
-    btnScanQR.hidden = false;
+    btnScanQR.style.display = "none";
   }
 };
 
